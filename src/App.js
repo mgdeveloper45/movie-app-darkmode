@@ -1,24 +1,16 @@
 import React from "react";
-import Movies from './components/Movies/Movies'
-import { useSelector, useDispatch } from 'react-redux';
-// import { increment_five, increment, decrement } from './actions';
+import Movies from "./components/Movies/Movies";
+import Search from "./components/Search/Search";
+import { useSelector } from "react-redux";
+import { Home } from "./AppStyles";
 
 function App() {
-  
-  // const counter = useSelector(state => state.counter);
-  // const isLogged = useSelector(state => state.isLogged);
-  // const searchMovies = useSelector(state => state.movies)
-  const dispatch = useDispatch();
-
+  const theme = useSelector((state) => state.theme);
   return (
-    <div>
-      {/* <h1>Counter: {counter}</h1>
-      <button onClick={()=> dispatch(increment())}>+</button>
-      <button onClick={()=> dispatch(increment_five(5))}>Add by 5</button>
-      <button onClick={()=> dispatch(decrement())}>-</button>
-      { isLogged ? <h3>Logged In</h3> : <h3>Logged Out</h3> } */}
-      <Movies/>
-    </div>
+    <Home theme={theme}>
+      <Search />
+      <Movies />
+    </Home>
   );
 }
 

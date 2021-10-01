@@ -1,11 +1,10 @@
-
-const movieReducer = (state = [], action) => {
+const themeReducer = (state = false, action) => {
     switch (action.type) {
-        case 'FETCH_MOVIE':
+        case 'THEME_PICKER':
             return action.payload;
         default:
             return state;
     }
 }
 
-export default movieReducer
+export default themeReducer;

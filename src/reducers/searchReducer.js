@@ -1,11 +1,10 @@
-
-const movieReducer = (state = [], action) => {
+const searchReducer = (state = "", action) => {
     switch (action.type) {
-        case 'FETCH_MOVIE':
+        case 'SEARCH':
             return action.payload;
         default:
             return state;
     }
 }
 
-export default movieReducer
+export default searchReducer
