@@ -21,11 +21,11 @@ const Movies = () => {
     <MovieContainer>
       {movie.map((item) => (
         <Key>
-          <Title>{item.title}</Title>
+          <Title theme={theme}>{item.title}</Title>
           <Img src={item.poster} />
           <Content>
-            <Info>{item.type}</Info>
-            <Info>{item.year}</Info>
+            <Info theme={theme}>Type: {item.type}</Info>
+            <Info theme={theme}>Year: {item.year}</Info>
           </Content>
         </Key>
       ))}

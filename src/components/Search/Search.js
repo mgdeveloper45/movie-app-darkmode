@@ -15,8 +15,15 @@ const Search = () => {
 
   const onSearchSubmit = (e) => {
     e.preventDefault();
-    searchMovie(search)
-    .then((res) => dispatch(setMovie(res)));
+    if(search === "") {
+      return ''
+    } else {
+      searchMovie(search)
+      .then((res) => dispatch(setMovie(res)));
+      // dispatch(setSearch(''));
+      dispatch(setSearch(e.target.value === ''))
+      return search
+    }
   };
   const onThemeClick = () => {
     dispatch(setTheme(!theme));
@@ -25,7 +32,7 @@ const Search = () => {
     <FormContainer theme={theme}>
       <Button theme={theme}>Home</Button>
       <Form onSubmit={onSearchSubmit}>
-        <Input theme={theme} onChange={onSearchChange} placeholder="Movie Title" />
+        <Input theme={theme} onChange={onSearchChange} placeholder=" Search Movie Title" />
         <SearchButton theme={theme} type="submit">Search</SearchButton>
       </Form>
       <Button theme={theme} onClick={onThemeClick}>{theme ? "Light" : "Dark"}</Button>
